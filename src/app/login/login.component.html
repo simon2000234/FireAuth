@@ -1,0 +1,13 @@
+<h1>Login page</h1>
+<div *ngIf="auth.user$ | async as user; else loginSection">
+  <h1>You are logged in, you may proceed to the profile page</h1>
+  <button class="button" (click)="logout()">Sing Out</button>
+</div>
+
+<ng-template #loginSection>
+  <button class="button" (click)="login()">Sign In</button>
+</ng-template>
+<div *ngIf="auth.user$ | async as user;">
+  <a class="nav-link" routerLink="profile">Click here to go to profile page</a>
+</div>
+

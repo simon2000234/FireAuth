@@ -1,0 +1,9 @@
+<div *ngIf="User; else fuck">
+  <h2>Name: {{User.name}}</h2>
+  <h3>Email: {{User.email}}</h3>
+  <h3>User Id: {{User.uid}}</h3>
+</div>
+
+<ng-template #fuck>
+  <h1>fuck</h1>
+</ng-template>
