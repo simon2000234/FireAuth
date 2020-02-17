@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { LoginComponent } from './login/login.component';
 
 import { AngularFireModule} from '@angular/fire';
@@ -25,7 +24,6 @@ const config = {
 @NgModule({
   declarations: [
     AppComponent,
-    ProfilePageComponent,
     LoginComponent
   ],
   imports: [
