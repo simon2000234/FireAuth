@@ -2,9 +2,10 @@
   <h2>Name: {{User.name}}</h2>
   <h3>Email: {{User.email}}</h3>
   <h3>User Id: {{User.uid}}</h3>
+  <h3>Role: {{User.role}}</h3>
   <form [formGroup]="userForm" (ngSubmit)="update()">
   <div class="form-group">
-    <label>Email:</label>
+    <label>Bio:</label>
     <input type="bio" class="form-control" formControlName="bio" placeholder="{{User.bio}}">
   </div>
   <div class="form-group">
@@ -14,5 +15,5 @@
 </div>
 
 <ng-template #fuck>
-  <h1>fuck</h1>
+  <h1>Loading</h1>
 </ng-template>
