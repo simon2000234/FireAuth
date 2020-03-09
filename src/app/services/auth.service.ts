@@ -7,7 +7,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 
 import { Observable, of } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import {map, switchMap} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -47,7 +47,7 @@ export class AuthService {
       email: user.email,
       name: user.displayName,
     };
-    localStorage.setItem('currentUser', JSON.stringify(data));
+    localStorage.setItem('currentUser', JSON.stringify(data.uid));
 
 
     return userRef.set(data, {merge: true});
