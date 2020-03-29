@@ -9,6 +9,7 @@ import { AngularFireModule} from '@angular/fire';
 import { AngularFirestoreModule} from '@angular/fire/firestore';
 import { AngularFireStorageModule} from '@angular/fire/storage';
 import { AngularFireAuthModule} from '@angular/fire/auth';
+import { BuyPageComponent } from './buy-page/buy-page.component';
 
 
 const config = {
@@ -24,7 +25,7 @@ const config = {
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

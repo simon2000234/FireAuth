@@ -1,7 +1,6 @@
 {
   "extends": "./tsconfig-basic",
   "include": [
-    "src",
-    "test"
+    "src"
   ]
 }

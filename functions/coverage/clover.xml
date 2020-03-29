@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1585496359118" clover="3.2.0">
-  <project timestamp="1585496359119" name="All files">
+<coverage generated="1585504626072" clover="3.2.0">
+  <project timestamp="1585504626073" name="All files">
     <metrics statements="4" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1" elements="7" coveredelements="3" complexity="0" loc="4" ncloc="4" packages="1" files="1" classes="1"/>
     <file name="user.service.ts" path="C:\Users\warcr\Documents\Work\WebStorm\AngularFire\FireAuth\functions\src\users\user.service.ts">
       <metrics statements="4" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>

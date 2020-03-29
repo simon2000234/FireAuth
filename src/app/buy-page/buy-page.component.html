@@ -1,0 +1,4 @@
+<div *ngFor="let product of products">
+  <h3>{{product.name}} price: {{product.price}} kr</h3>
+  <button (click)="buy(product)">Buy</button>
+</div>
