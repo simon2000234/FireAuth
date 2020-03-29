@@ -1,4 +1,3 @@
-import {Stock} from '../models/stock';
 import {ProductService} from './product.service';
 import {ProductController} from './product.controller';
 import {Change, EventContext} from 'firebase-functions';
