@@ -2,6 +2,7 @@ import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
 import {DependencyFactory} from './dependency-factory';
 
+
 const factory = new DependencyFactory();
 
 admin.initializeApp();
@@ -15,10 +16,11 @@ exports.deleteAuthUserWhenUserDelete = functions.firestore.document('users/{id}'
     return factory.getUserController().deleteUserAuth(snapshot, context);
   });
 
-exports.createNewStockWhenNewProduct = functions.firestore.document('products{id}')
-  .onWrite((change, context) => {
-    return factory.getProductController().createNewStock(change, context)
-  })
+exports.createNewStockWhenNewProduct = functions.firestore.document('products/{id}')
+  .onCreate((change, context) => {
+    const stockId: string = admin.firestore().collection("stock").doc().id;
+    return factory.getProductController().createNewStock(change, context, stockId);
+  });
 // // Start writing Firebase Functions
 // // https://firebase.google.com/docs/functions/typescript
 //
