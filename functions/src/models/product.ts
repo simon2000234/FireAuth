@@ -2,5 +2,6 @@ export interface Product {
   id?: string,
   description?: string,
   name?: string,
-  price?: number
+  price?: number,
+  stockId?: string
 }

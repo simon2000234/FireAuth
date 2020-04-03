@@ -1,6 +1,8 @@
 import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
 import {DependencyFactory} from './dependency-factory';
+import {Product} from './models/product';
+import {Order} from './models/order';
 
 
 const factory = new DependencyFactory();
@@ -17,9 +19,16 @@ exports.deleteAuthUserWhenUserDelete = functions.firestore.document('users/{id}'
   });
 
 exports.createNewStockWhenNewProduct = functions.firestore.document('products/{id}')
-  .onCreate((change, context) => {
+  .onCreate((snapshot, context) => {
     const stockId: string = admin.firestore().collection("stock").doc().id;
-    return factory.getProductController().createNewStock(change, context, stockId);
+    return factory.getProductController().createNewStock(snapshot, context, stockId);
+  });
+
+exports.countDownStockWhenNewOrder = functions.firestore.document('orders/{id}')
+  .onCreate((snapshot) => {
+    const order: Order = snapshot.data() as Order;
+    const product: Product = order.product as Product;
+    return factory.getStockController().countDownStock(product, order.count);
   });
 // // Start writing Firebase Functions
 // // https://firebase.google.com/docs/functions/typescript

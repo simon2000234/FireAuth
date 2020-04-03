@@ -2,6 +2,6 @@ import {Product} from './product';
 
 export interface Stock {
   id?: string,
-  stock?: number,
+  stock: number,
   product: Product
 }
