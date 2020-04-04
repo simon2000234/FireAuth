@@ -11,8 +11,19 @@ export class StockService {
       product: stock.product,
       stock: stock.stock - amount,
       id: stock.id
-    }
+    };
 
-    return this.repo.countDownStock(newStock)
+    return this.repo.updateStock(newStock);
+  }
+
+  async updateStockProduct(product: Product): Promise<any> {
+    const stock: Stock = await this.repo.findStock(product);
+    const newStock: Stock = {
+      product: product,
+      stock: stock.stock,
+      id: stock.id
+    };
+
+    return this.repo.updateStock(newStock);
   }
 }

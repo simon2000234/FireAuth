@@ -30,6 +30,16 @@ exports.countDownStockWhenNewOrder = functions.firestore.document('orders/{id}')
     const product: Product = order.product as Product;
     return factory.getStockController().countDownStock(product, order.count);
   });
+
+exports.updateStockWhenProductUpdate = functions.firestore.document('products/{id}')
+  .onUpdate((change) => {
+    return factory.getStockController().updateStockProduct(change.after.data() as Product);
+  });
+
+exports.updateOrderWhenProductUpdate = functions.firestore.document('products/{id}')
+  .onUpdate((change) => {
+    return factory.getOrderController().updateOrderProduct(change.after.data() as Product);
+  })
 // // Start writing Firebase Functions
 // // https://firebase.google.com/docs/functions/typescript
 //

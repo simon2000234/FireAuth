@@ -7,8 +7,8 @@ import {Stock} from '../../src/models/stock';
 describe('ProductService', () => {
   let productRepository: IMock<ProductRepository>;
   let productService: ProductService;
-  let product: Product = {price: 123, name: 'cup', id: '1', description: 'a cup'}
-  let stock: Stock = {stock: 5, product: product, id:'2'}
+  let product: Product = {price: 123, name: 'cup', id: '1', description: 'a cup'};
+  let stock: Stock = {stock: 5, product: product, id:'2'};
   beforeEach(() => {
     productRepository = new Mock<ProductRepository>()
       .setup(pr => pr.createNewStock(stock))
@@ -16,10 +16,10 @@ describe('ProductService', () => {
         resolve()
       }));
     productService = new ProductService(productRepository.object());
-  })
+  });
 
   it("Test test", async () => {
     expect(productService).toBeDefined;
   });
-})
+});
 

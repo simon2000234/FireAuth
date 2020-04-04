@@ -5,7 +5,7 @@ import {Product} from '../models/product';
 
 export class StockRepositoryFirebase implements StockRepository{
 
-  async countDownStock(stock: Stock): Promise<any> {
+  async updateStock(stock: Stock): Promise<any> {
     return admin.firestore().doc('stock/' + stock.id).set(stock);
   }
 
@@ -24,7 +24,7 @@ export class StockRepositoryFirebase implements StockRepository{
       snap.forEach(doc => {
         stock = doc.data() as Stock
       })
-    })
+    });
 
     return Promise.resolve(stock)
     //den vente ikke hverken coden uppe eller coden nede
